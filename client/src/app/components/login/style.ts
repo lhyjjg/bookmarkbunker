@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { FcGoogle } from "react-icons/fc";
 import { RiKakaoTalkFill } from "react-icons/ri";
+import { IoMdCloseCircle } from "react-icons/io";
+import { IoEyeSharp } from "react-icons/io5";
 
 export const LoginBackground = styled.div`
   position: fixed;
@@ -23,6 +25,7 @@ export const LoginContainer = styled.div`
   border-radius: 25px;
   background-color: var(--color-main);
   padding: 24px 32px;
+  position: relative;
 `;
 
 export const Header = styled.h1`
@@ -67,7 +70,7 @@ export const KaKaoButton = styled.button`
   border: 2px solid #fee500;
   border-radius: 10px;
   padding: 8px 0;
-  margin-bottom: 12px;
+  margin-bottom: 24px;
 `;
 
 export const KaKaoIcon = styled(RiKakaoTalkFill)`
@@ -75,4 +78,53 @@ export const KaKaoIcon = styled(RiKakaoTalkFill)`
   height: 24px;
   position: absolute;
   left: 48px;
+`;
+
+export const CloseButton = styled(IoMdCloseCircle)`
+  width: 24px;
+  height: 24px;
+  color: white;
+  position: absolute;
+  cursor: pointer;
+  right: 24px;
+  top: 24px;
+`;
+
+export const Explanation = styled.span`
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  text-align: center;
+`;
+
+export const Label = styled.label`
+  position: relative;
+`;
+
+export const InputBox = styled.input`
+  width: 272px;
+  border: 2px solid var(--color-main);
+  border-radius: 10px;
+  padding: 8px 4px;
+  margin-bottom: 12px;
+`;
+
+export const PasswordView = styled(IoEyeSharp)`
+  color: var(--color-main);
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  cursor: pointer;
+`;
+
+export const LoginButton = styled.button`
+  width: 120px;
+  padding: 8px 0;
+  border: 2px solid var(--color-main);
+  border-radius: 20px;
+  font-weight: bold;
+  background-color: white;
 `;
