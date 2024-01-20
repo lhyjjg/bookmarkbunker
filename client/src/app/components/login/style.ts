@@ -90,12 +90,10 @@ export const CloseButton = styled(IoMdCloseCircle)`
   top: 24px;
 `;
 
-export const Explanation = styled.span`
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
-  margin-bottom: 12px;
-  text-align: center;
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const Label = styled.label`
@@ -108,6 +106,13 @@ export const InputBox = styled.input`
   border-radius: 10px;
   padding: 8px 4px;
   margin-bottom: 12px;
+  outline: none;
+  &::placeholder {
+    font-weight: bold;
+  }
+  &:focus {
+    border: 1px solid red;
+  }
 `;
 
 export const PasswordView = styled(IoEyeSharp)`
@@ -115,8 +120,8 @@ export const PasswordView = styled(IoEyeSharp)`
   width: 24px;
   height: 24px;
   position: absolute;
-  right: 8px;
-  top: 8px;
+  right: 6px;
+  top: 6px;
   cursor: pointer;
 `;
 
@@ -127,4 +132,14 @@ export const LoginButton = styled.button`
   border-radius: 20px;
   font-weight: bold;
   background-color: white;
+  color: black;
+  cursor: pointer;
+`;
+
+export const Explanation = styled.span`
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  text-align: center;
 `;
