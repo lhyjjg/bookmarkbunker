@@ -3,14 +3,18 @@
 import { useState } from "react";
 import * as S from "./style";
 
-export default function Login() {
+interface ShowProps {
+  showLoginModal: () => void;
+}
+
+export default function Login({ showLoginModal }: ShowProps) {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   return (
-    <S.LoginBackground>
-      <S.LoginContainer>
-        <S.CloseButton />
+    <S.LoginBackground onClick={showLoginModal}>
+      <S.LoginContainer onClick={(e) => e.stopPropagation()}>
+        <S.CloseButton onClick={showLoginModal} />
         <S.Header>LOGIN</S.Header>
         <S.GoogleButton>
           <S.GoogleIcon />

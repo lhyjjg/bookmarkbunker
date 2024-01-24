@@ -1,10 +1,8 @@
 import styled from "styled-components";
-import { FcGoogle } from "react-icons/fc";
-import { RiKakaoTalkFill } from "react-icons/ri";
 import { IoMdCloseCircle } from "react-icons/io";
 import { IoEyeSharp } from "react-icons/io5";
 
-export const LoginBackground = styled.div`
+export const JoinBackground = styled.div`
   position: fixed;
   top: 0;
   right: 0;
@@ -18,7 +16,7 @@ export const LoginBackground = styled.div`
   z-index: 999;
 `;
 
-export const LoginContainer = styled.div`
+export const JoinContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -34,50 +32,13 @@ export const Header = styled.h1`
   font-size: 44px;
 `;
 
-export const GoogleButton = styled.button`
-  width: 280px;
-  color: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+export const Explanation = styled.span`
+  color: white;
   font-weight: bold;
-  position: relative;
-  cursor: pointer;
-  background-color: white;
-  border: 2px solid white;
-  border-radius: 10px;
-  padding: 8px 0;
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.5;
   margin-bottom: 12px;
-`;
-
-export const GoogleIcon = styled(FcGoogle)`
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  left: 48px;
-`;
-
-export const KaKaoButton = styled.button`
-  width: 280px;
-  color: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  position: relative;
-  cursor: pointer;
-  background-color: #fee500;
-  border: 2px solid #fee500;
-  border-radius: 10px;
-  padding: 8px 0;
-  margin-bottom: 24px;
-`;
-
-export const KaKaoIcon = styled(RiKakaoTalkFill)`
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  left: 48px;
 `;
 
 export const CloseButton = styled(IoMdCloseCircle)`
@@ -125,7 +86,7 @@ export const PasswordView = styled(IoEyeSharp)`
   cursor: pointer;
 `;
 
-export const LoginButton = styled.button`
+export const JoinButton = styled.button`
   width: 120px;
   padding: 8px 0;
   border: 2px solid var(--color-main);
@@ -134,4 +95,10 @@ export const LoginButton = styled.button`
   background-color: white;
   color: black;
   cursor: pointer;
+`;
+
+export const ErrorMSG = styled.span`
+  color: #f34549;
+  font-size: 12px;
+  margin-bottom: 12px;
 `;

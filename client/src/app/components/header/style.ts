@@ -13,11 +13,18 @@ export const Header = styled.header`
 export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
-  position: relative;
 `;
 export const Logo = styled(HeaderLogo)`
   width: 120px;
   height: 30px;
+`;
+
+export const HeaderContents = styled.div`
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
 `;
 
 export const LoginButton = styled.button`
@@ -30,15 +37,21 @@ export const LoginButton = styled.button`
   border-radius: 25px;
   cursor: pointer;
   font-size: 12px;
-  position: absolute;
-  right: 0;
+  margin-right: 12px;
+  width: 80px;
 `;
 
-export const LoginAfter = styled.div`
-  position: absolute;
-  right: 0;
-  display: flex;
-  align-items: center;
+export const JoinButton = styled.button`
+  border: none;
+  background-color: var(--color-main);
+  border: 2px solid var(--color-main);
+  color: white;
+  padding: 8px 16px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 12px;
+  width: 80px;
 `;
 
 export const MyPageButton = styled.button`

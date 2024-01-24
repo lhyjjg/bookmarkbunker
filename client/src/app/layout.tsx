@@ -1,5 +1,10 @@
-import StyledComponentsRegistry from "./lib/registry";
+"use client";
+
+import StyledComponentsRegistry from "../lib/registry";
 import type { Metadata } from "next";
+
+import Header from "../app/components/header";
+import Join from "./components/join";
 
 export const metadata: Metadata = {
   title: "bookmarkbunker",
@@ -18,7 +23,11 @@ export default function RootLayout({
     <>
       <html>
         <body>
-          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+          <StyledComponentsRegistry>
+            <Header />
+            {/* <Join /> */}
+            {children}
+          </StyledComponentsRegistry>
         </body>
       </html>
     </>

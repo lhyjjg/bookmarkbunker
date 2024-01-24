@@ -13,5 +13,6 @@ export const GlobalStyle = createGlobalStyle`
   
   :root {
     --color-main:#2F2E33;
+    --color-red: #f34549;
   }
 `;

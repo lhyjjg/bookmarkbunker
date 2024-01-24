@@ -5,9 +5,6 @@ import { useServerInsertedHTML } from "next/navigation";
 import { ServerStyleSheet, StyleSheetManager } from "styled-components";
 import { GlobalStyle } from "@/styles/GlobalStyle";
 
-import Header from "../components/header";
-import Login from "../components/login";
-
 export default function StyledComponentsRegistry({
   children,
 }: {
@@ -26,8 +23,6 @@ export default function StyledComponentsRegistry({
   return (
     <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>
       <GlobalStyle />
-      <Header />
-      <Login />
       {children}
     </StyleSheetManager>
   );
