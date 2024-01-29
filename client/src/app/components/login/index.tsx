@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import axios from "axios";
 import * as S from "./style";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 interface ShowProps {
   showLoginModal: () => void;
@@ -10,6 +12,34 @@ interface ShowProps {
 export default function Login({ showLoginModal }: ShowProps) {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+
+  const router = useRouter();
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const data = {
+      identifier: email,
+      password: password,
+    };
+
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/local`,
+        data
+      );
+      if (response.status === 200) {
+        showLoginModal();
+        alert("로그인에 성공했어요");
+        router.push("/");
+      }
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        alert("로그인에 실패했어요.\n정보를 확인해주세요.");
+        console.log(data);
+      }
+    }
+  };
 
   return (
     <S.LoginBackground onClick={showLoginModal}>
@@ -24,10 +54,7 @@ export default function Login({ showLoginModal }: ShowProps) {
           <S.KaKaoIcon />
           카카오 로그인
         </S.KaKaoButton>
-        <S.Form
-          method="post"
-          action={`${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/local`}
-        >
+        <S.Form onSubmit={onSubmit}>
           <label>
             <S.InputBox
               type="text"
@@ -50,7 +77,7 @@ export default function Login({ showLoginModal }: ShowProps) {
             />
             <S.PasswordView />
           </S.Label>
-          <S.LoginButton>로그인</S.LoginButton>
+          <S.LoginButton type="submit">로그인</S.LoginButton>
         </S.Form>
       </S.LoginContainer>
     </S.LoginBackground>
