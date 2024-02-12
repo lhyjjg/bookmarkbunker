@@ -26,6 +26,10 @@ export const LoginContainer = styled.div`
   background-color: var(--color-main);
   padding: 24px 32px;
   position: relative;
+
+  > a {
+    text-decoration: none;
+  }
 `;
 
 export const Header = styled.h1`

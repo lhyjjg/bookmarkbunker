@@ -10,6 +10,8 @@ interface ShowProps {
 }
 
 export default function Login({ showLoginModal }: ShowProps) {
+  const backendUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -24,10 +26,7 @@ export default function Login({ showLoginModal }: ShowProps) {
     };
 
     try {
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/local`,
-        data
-      );
+      const response = await axios.post(`${backendUrl}/api/auth/local`, data);
       if (response.status === 200) {
         showLoginModal();
         alert("로그인에 성공했어요");
@@ -41,15 +40,27 @@ export default function Login({ showLoginModal }: ShowProps) {
     }
   };
 
+  const GoogleLoginButton = () => {
+    return (
+      <a href={`${backendUrl}/api/connect/google`}>
+        <S.GoogleButton>
+          <S.GoogleIcon />
+          구글 로그인
+        </S.GoogleButton>
+      </a>
+    );
+  };
+
   return (
     <S.LoginBackground onClick={showLoginModal}>
       <S.LoginContainer onClick={(e) => e.stopPropagation()}>
         <S.CloseButton onClick={showLoginModal} />
         <S.Header>LOGIN</S.Header>
-        <S.GoogleButton>
+        {/* <S.GoogleButton>
           <S.GoogleIcon />
           구글 로그인
-        </S.GoogleButton>
+        </S.GoogleButton> */}
+        <GoogleLoginButton />
         <S.KaKaoButton>
           <S.KaKaoIcon />
           카카오 로그인
@@ -59,7 +70,6 @@ export default function Login({ showLoginModal }: ShowProps) {
             <S.InputBox
               type="text"
               name="email"
-              id="identifier"
               placeholder="이메일을 입력해주세요."
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -69,7 +79,6 @@ export default function Login({ showLoginModal }: ShowProps) {
             <S.InputBox
               type="password"
               name="password"
-              id="password"
               placeholder="패스워드를 입력해주세요."
               autoComplete="off"
               value={password}
